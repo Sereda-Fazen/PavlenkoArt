@@ -1,5 +1,7 @@
 package tests;
 
+
+
 import utils.Application;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Story;
@@ -9,6 +11,7 @@ import net.thucydides.junit.annotations.Concurrent;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 
 @Story(Application.RozCompare.Compare.class)
 @RunWith(ThucydidesRunner.class)
@@ -24,15 +27,30 @@ public class VideoCompareTest extends BeforeClass {
         compare1.addGood();
         compare2.addOrder();
         //form
-        name.addName();
-        email.addEmail();
-        phone.addPhone();
-        city.addCity();
-        adress.addAdress();
-        comment.addComment();
-        orderbue.addOrderBuy();
+
+
+        userInfo.addName();
+        userInfo.addEmail();
+        userInfo.addPhone();
+        userInfo.addCity();
+        userInfo.addAdress();
+        userInfo.addComment();
+        userInfo.addOrderBuy();
+
+
+        assertTitle();
+
 
         Thread.sleep(5000);
     }
-    }
+
+
+
+
+}
+
+
+
+
+
 

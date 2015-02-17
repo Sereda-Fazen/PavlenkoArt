@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.Assert;
 import steps.GoodSteps;
 import steps.HomeSteps;
 import net.thucydides.core.annotations.Managed;
@@ -12,12 +13,14 @@ import steps.OrderingSteps;
 
 import java.io.IOException;
 
+import static org.hamcrest.Matchers.is;
+
 /**
  * Created by rb on 19.01.15.
  */
 public class BeforeClass {
 
-    @Managed(uniqueSession = true, driver = "firefox")
+    @Managed(uniqueSession = true, driver = "chrome")
     public WebDriver driver;
     @Steps
     public HomeSteps compare;
@@ -25,19 +28,13 @@ public class BeforeClass {
     public GoodSteps compare1;
     @Steps
     public OrderSteps compare2;
-    // Form
-        public @Steps OrderingSteps name;
-        public @Steps OrderingSteps email;
-        public @Steps OrderingSteps phone;
-        public @Steps OrderingSteps city;
-        public @Steps OrderingSteps adress;
-        public @Steps OrderingSteps comment;
-        public @Steps OrderingSteps orderbue;
-
+    @Steps
+    public OrderingSteps userInfo;
 
 
     @Before
     public void myTest() throws Exception {
+      System.setProperty("webdriver.chrome.driver", "C:\\Test\\DriverBrowsers\\chromedriver.exe");
         compare.start_browser();
         driver.manage().window().maximize();
     }
@@ -46,5 +43,7 @@ public class BeforeClass {
     public void close() throws IOException {
         driver.close();
     }
+
+
 
 }
